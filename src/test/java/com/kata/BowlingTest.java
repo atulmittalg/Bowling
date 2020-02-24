@@ -14,6 +14,12 @@ public class BowlingTest {
         bowlingGame = new Bowling();
     }
 
+    private void setRollScoreTo5ForMultipleRolls(final int numberOfRolls){
+        for(int i =0; i < numberOfRolls; i++){
+            bowlingGame.calculateScorePerRoll(5);
+        }
+    }
+
     @Test
     public void shouldSetScoreToZeroBeforeStartOfTheGame(){
         Assert.assertEquals(0,bowlingGame.calculateGameScore());
@@ -27,14 +33,13 @@ public class BowlingTest {
 
     @Test
     public void shouldSetScoreTo5When5PinsAreDroppedForSingleRoll(){
-        bowlingGame.calculateScorePerRoll(5);
+        setRollScoreTo5ForMultipleRolls(1);
         Assert.assertEquals(5,bowlingGame.calculateGameScore());
     }
 
     @Test
     public void shouldSetScoreTo10When5PinsAreDroppedTwice(){
-        bowlingGame.calculateScorePerRoll(5);
-        bowlingGame.calculateScorePerRoll(5);
+        setRollScoreTo5ForMultipleRolls(2);
         Assert.assertEquals(10,bowlingGame.calculateGameScore());
     }
 }
