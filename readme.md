@@ -34,9 +34,12 @@ Creating test cases and developing accordingly to pass the test.
 3. Calculating Score for multiple Rolls.
 4. Calculating Score for a Strike followed by a normal frame.
 5. Calculating Score for 2 Continous Strike followed by a normal frame.
+6. Calulating Score for All frames as Strikes and bonus 2 rolls as Strikes. (Bonus Roll Functionality).
+7. Calculating Score for a Spare followed by a normal frame.
+8. Calulating Score for All frames as Spares along with Bonus Roll (Bonus Roll Functionality when getting a Spare).
 
 ## System Requirements
 
-Java 1.6 or higher
-Maven - For Dependency Management
-Intellij (or) any IDE supporting JAVA
+1. Java 1.6 or higher.
+2. Maven - For Dependency Management (JUnit Dependency Added).
+3. Intellij (or) any IDE supporting JAVA.
