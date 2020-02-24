@@ -70,4 +70,10 @@ public class BowlingTest {
         setRollScoreToForMultipleRolls(2,3);
         Assert.assertEquals(19,bowlingGame.calculateGameScore());
     }
+
+    @Test
+    public void shouldCalculateScoreWhenGettingSpareInAllFramesAnd5InBonusRoll(){
+        setRollScoreToForMultipleRolls(21,5);
+        Assert.assertEquals(150,bowlingGame.calculateGameScore());
+    }
 }
