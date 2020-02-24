@@ -24,4 +24,9 @@ public class BowlingTest {
         Assert.assertEquals(0,bowlingGame.calculateGameScore(0));
     }
 
+    @Test
+    public void shouldSetScoreTo5When5PinsAreDroppedForSingleRoll(){
+        Assert.assertEquals(5,bowlingGame.calculateGameScore(5));
+    }
+
 }
