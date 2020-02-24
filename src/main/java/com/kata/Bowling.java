@@ -1,8 +1,13 @@
 package main.java.com.kata;
 
 public class Bowling {
-    public int calculateGameScore(int bowlingRoll) {
-        int gameScore = 0;
-        return gameScore + bowlingRoll;
+    private int gameScore;
+
+    public int calculateGameScore() {
+        return gameScore;
+    }
+
+    public void calculateScorePerRoll(int pinsDropped){
+        gameScore += pinsDropped;
     }
 }
