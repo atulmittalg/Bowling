@@ -16,6 +16,12 @@ public class BowlingTest {
 
     @Test
     public void shouldSetScoreToZeroBeforeStartOfTheGame(){
-        Assert.assertEquals(0,bowlingGame.calculateGameScore());
+        Assert.assertEquals(0,bowlingGame.calculateGameScore(0));
     }
+
+    @Test
+    public void shouldSetScoreToZeroWhenZeroPinsAreDroppedForSingleRoll(){
+        Assert.assertEquals(0,bowlingGame.calculateGameScore(0));
+    }
+
 }
