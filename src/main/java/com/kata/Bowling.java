@@ -6,7 +6,8 @@ public class Bowling {
     private int totalNumberOfRolls;
 
     public int calculateGameScore() {
-        for(int rollPosition = 0; rollPosition < totalNumberOfRolls; rollPosition++){
+        int maxNonBonusRolls = Math.min(totalNumberOfRolls, 20);
+        for(int rollPosition = 0; rollPosition < maxNonBonusRolls; rollPosition++){
             int rollScore = listOfRollScores[rollPosition];
             gameScore+=rollScore;
             calculateStrikeRollScore(rollPosition, rollScore);
@@ -17,15 +18,16 @@ public class Bowling {
     private void calculateStrikeRollScore(int rollPosition, int rollScore) {
         if(isAStrike(rollScore)){
             int rollScoreAfterStrike = listOfRollScores[rollPosition+2];
-            int frameScore = rollScoreAfterStrike + listOfRollScores[rollPosition+3];
-            if(isAStrike(rollScoreAfterStrike)) gameScore = gameScore + rollScoreAfterStrike + listOfRollScores[rollPosition+4];
-            else  gameScore = gameScore + frameScore;
+            if(isAStrike(rollScoreAfterStrike)  && rollPosition < 18) {
+                gameScore = gameScore + rollScoreAfterStrike + listOfRollScores[rollPosition+4];
+            }
+            else  gameScore = gameScore + rollScoreAfterStrike + listOfRollScores[rollPosition+3];
         }
     }
 
     public void calculateScorePerRoll(final int pinsDropped){
         listOfRollScores[totalNumberOfRolls++] = pinsDropped;
-        if(isAStrike(pinsDropped))   totalNumberOfRolls++;
+        if(isAStrike(pinsDropped) && totalNumberOfRolls < 20)   totalNumberOfRolls++;
     }
 
     private boolean isAStrike(final int pinsDropped){

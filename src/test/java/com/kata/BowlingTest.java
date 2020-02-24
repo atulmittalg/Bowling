@@ -57,4 +57,10 @@ public class BowlingTest {
         setRollScoreToForMultipleRolls(2,3);
         Assert.assertEquals(45,bowlingGame.calculateGameScore());
     }
+
+    @Test
+    public void shouldCalculateScoreTo300WhenGettingStrikesInAllRolls(){
+        setRollScoreToForMultipleRolls(12,10);
+        Assert.assertEquals(300,bowlingGame.calculateGameScore());
+    }
 }
