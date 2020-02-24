@@ -14,7 +14,7 @@ public class BowlingTest {
         bowlingGame = new Bowling();
     }
 
-    private void setRollScoreTo5ForMultipleRolls(final int numberOfRolls, final int pinsDropped){
+    private void setRollScoreToForMultipleRolls(final int numberOfRolls, final int pinsDropped){
         for(int i =0; i < numberOfRolls; i++){
             bowlingGame.calculateScorePerRoll(pinsDropped);
         }
@@ -33,20 +33,20 @@ public class BowlingTest {
 
     @Test
     public void shouldSetScoreTo5When5PinsAreDroppedForSingleRoll(){
-        setRollScoreTo5ForMultipleRolls(1,5);
+        setRollScoreToForMultipleRolls(1,5);
         Assert.assertEquals(5,bowlingGame.calculateGameScore());
     }
 
     @Test
     public void shouldSetScoreTo10When5PinsAreDroppedTwice(){
-        setRollScoreTo5ForMultipleRolls(2,5);
+        setRollScoreToForMultipleRolls(2,5);
         Assert.assertEquals(10,bowlingGame.calculateGameScore());
     }
 
     @Test
     public void shouldCalculateScoreWhenGettingStrikeAnd2NormalRolls(){
         bowlingGame.calculateScorePerRoll(10);
-        setRollScoreTo5ForMultipleRolls(2,3);
+        setRollScoreToForMultipleRolls(2,3);
         Assert.assertEquals(22,bowlingGame.calculateGameScore());
     }
 }

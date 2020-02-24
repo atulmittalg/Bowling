@@ -7,16 +7,21 @@ public class Bowling {
 
     public int calculateGameScore() {
         for(int rollPointer = 0; rollPointer < totalNumberOfRolls; rollPointer++){
-            gameScore+=listOfRollScores[rollPointer];
-            if(listOfRollScores[rollPointer] == 10){
+            int rollScore = listOfRollScores[rollPointer];
+            gameScore+=rollScore;
+            if(isStrike(rollScore)){
                 gameScore = gameScore + listOfRollScores[rollPointer+2] + listOfRollScores[rollPointer+3];
             }
         }
         return gameScore;
     }
 
-    public void calculateScorePerRoll(int pinsDropped){
+    public void calculateScorePerRoll(final int pinsDropped){
         listOfRollScores[totalNumberOfRolls++] = pinsDropped;
-        if(pinsDropped == 10)   totalNumberOfRolls++;
+        if(isStrike(pinsDropped))   totalNumberOfRolls++;
+    }
+
+    private boolean isStrike(final int pinsDropped){
+        return pinsDropped == 10;
     }
 }
