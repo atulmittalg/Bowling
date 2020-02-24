@@ -10,7 +10,8 @@ public class Bowling {
             int rollScore = listOfRollScores[rollPointer];
             gameScore+=rollScore;
             if(isStrike(rollScore)){
-                gameScore = gameScore + listOfRollScores[rollPointer+2] + listOfRollScores[rollPointer+3];
+                if(isStrike(listOfRollScores[rollPointer+2])) gameScore = gameScore + listOfRollScores[rollPointer+2] + listOfRollScores[rollPointer+4];
+                else  gameScore = gameScore + listOfRollScores[rollPointer+2] + listOfRollScores[rollPointer+3];
             }
         }
         return gameScore;

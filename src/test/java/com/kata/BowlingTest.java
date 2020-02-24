@@ -49,4 +49,12 @@ public class BowlingTest {
         setRollScoreToForMultipleRolls(2,3);
         Assert.assertEquals(22,bowlingGame.calculateGameScore());
     }
+
+    @Test
+    public void shouldCalculateScoreWhenGetting2ContinousStrikesFollowedBy2NormalRolls(){
+        bowlingGame.calculateScorePerRoll(10);
+        bowlingGame.calculateScorePerRoll(10);
+        setRollScoreToForMultipleRolls(2,3);
+        Assert.assertEquals(45,bowlingGame.calculateGameScore());
+    }
 }
